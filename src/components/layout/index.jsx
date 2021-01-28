@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
-import s from './style.module.css'
+import ClassNames from 'classnames'; // Компонент для объединения CSS-стилей
+import PropTypes from 'prop-types'; // Компонент для проверки свойств
+import s from './style.module.css'; // Подключение CSS-стиля, как модуля
 
 const Layout = ({id, colorBg, urlBg, title="Title", desc="Desc"}) => {
   const style = {}
+  // Формирование встраиваемого стиля в зависимости от свойств urlBg и colorBg
   if (urlBg) {
     style.backgroundImage=`url(${urlBg})`
     style.backgroundSize = "cover"
@@ -18,7 +20,7 @@ const Layout = ({id, colorBg, urlBg, title="Title", desc="Desc"}) => {
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className={[s.des, s.full]}>
+          <div className={ClassNames(s.des, s.full)}>
             <p>{desc}</p>
           </div>
         </article>
@@ -27,6 +29,7 @@ const Layout = ({id, colorBg, urlBg, title="Title", desc="Desc"}) => {
   );
 }
 
+// Проверка типа свойства id
 Layout.propTypes = {
   id: PropTypes.string
 };

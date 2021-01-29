@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/header/index"
+import Layout from "./components/layout/index"
+import Footer from "./components/footer/index"
 
-function App() {
-  const val = 100
+import bg1 from "./images/bg1.jpg"
+import bg2 from "./images/bg2.jpg"
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello world
-        </p>
-      </header>
-    </div>
+    <>
+      <Header title="Pokemon Game" desc="Created for learning React" />
+      <Layout id="l01" title="JSX" desc="An example of working with JSX" urlBg={bg1}/>
+      <Layout id="l02" title="React components" desc="An example of working with React components" colorBg="#e3c60b"/>
+      <Layout id="l03" title="CSS" desc="An example of working with CSS" urlBg={bg2}/>
+      <Footer />
+    </>
   );
 }
 

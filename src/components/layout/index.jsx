@@ -1,8 +1,7 @@
-import ClassNames from 'classnames'; // Компонент для объединения CSS-стилей
 import PropTypes from 'prop-types'; // Компонент для проверки свойств
 import s from './style.module.css'; // Подключение CSS-стиля, как модуля
 
-const Layout = ({id, colorBg, urlBg, title="Title", desc="Desc"}) => {
+const Layout = ({id, colorBg, urlBg, title="Title", children}) => {
   const style = {}
   // Формирование встраиваемого стиля в зависимости от свойств urlBg и colorBg
   if (urlBg) {
@@ -20,9 +19,7 @@ const Layout = ({id, colorBg, urlBg, title="Title", desc="Desc"}) => {
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className={ClassNames(s.des, s.full)}>
-            <p>{desc}</p>
-          </div>
+          {children && children.map((itm)=>itm)}
         </article>
       </div>
     </section>
